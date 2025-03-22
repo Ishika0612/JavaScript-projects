@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading{
+            margin : 15px;
+        }
+        div{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .para{
+            border: 2px solid black;
+            border-radius: 6px;
+            display: flex;
+            width : 150px;
+            height : 70px;
+            margin : 15px;
+            align-items: center;
+            justify-content: center;
+            font-size: larger;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            cursor: pointer;
+        }
+        #green {
+            background-color: green;
+        }
+        #red{
+            background-color: red;
+        }
+        #blue{
+            background-color: blue;
+        }
+        #random {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1 id = "heading"> Color Flipper </h1>
+    <div> 
+        <p class="para" id = "green"> Green </p>
+        <p class="para" id = "red"> Red </p>
+        <p class="para" id = "blue"> Blue </p>
+        <p class="para" id = "random"> Random </p>
+    </div>
+
+    <script>
+        let body = document.querySelector("body");
+        let greenbox = document.getElementById("green");
+        let redbox = document.getElementById("red");
+        let bluebox = document.getElementById("blue");
+        let randombox = document.getElementById("random");
+        const colors = ['pink', 'yellow', 'orange', 'violet', 'black' , 'grey' , 'purple', 'white', 'MediumSeaGreen' , 'SlateBlue' ,'DodgerBlue' ,'Tomato'];
+
+        greenbox.addEventListener("click",function(){
+            body.style.backgroundColor = "green";
+        });
+
+        redbox.addEventListener("click",function(){
+            body.style.backgroundColor = "red";
+        });
+        bluebox.addEventListener("click",function(){
+            body.style.backgroundColor = "blue";
+        });
+        randombox.addEventListener("click",function() {
+            let randomindex = parseInt(Math.random()*colors.length);
+            body.style.backgroundColor = colors[randomindex];
+        });
+    </script>
+</body>
+</html>
