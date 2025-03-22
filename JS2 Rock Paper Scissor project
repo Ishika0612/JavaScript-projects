@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            background-color: #89A8B2;
+        }
+        .heading{
+            border:2px solid black;
+            background-color: black;
+            color:white;
+            height:55px;
+            font-size:40px;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .icons{
+            display:flex;
+            flex-wrap: wrap;
+        }
+        .icons{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image{
+            margin:20px;
+            text-align: center; 
+            margin-top:40px;
+        }
+       img{
+        height:170px;
+        width:180px;
+        border-radius: 49.5%;
+       }
+       img:hover{
+            border: 2px solid black;
+       }
+       .calc{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+     
+       }
+       .input1{
+        margin:40px;
+        font-size:30px;
+        padding:10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       }
+       .box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+       .head{
+        background-color: yellow;
+        height:70px;
+        width:250px;
+        border:2px solid black;
+        border-radius: 4px;
+        font-size: 20px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin:15px;
+       }
+       @media screen and (max-width:400px) {
+            .heading{
+            font-size:25px;
+            }
+            .input1{
+                margin:20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+       Rock Paper Scissor
+    </div>
+    <div>
+    <div class="icons">
+        <div class=" image" id="rock" ><img src="rock.png" alt="rock"> </div>
+        <div class="image" id="paper"> <img src="paper.png" alt="paper"> </div>
+        <div class="image" id="scissor"> <img src="scissors.png" alt="scissor"> </div>
+    </div>
+    <div class="calc">
+        <div class="input1"><p id="yourcount">0</p>
+            <p>You</p></div>
+        <div class="input1"><p id="compcount">0</p>
+            <p>Computer</p></div>
+    </div>
+    <div class="box">
+        <p class="head">Pick your move.</p>
+    </div>
+    </div>
+
+    <script>
+        let rock = document.getElementById('rock');
+        let paper = document.getElementById('paper');
+        let scissor = document.getElementById('scissor');
+        let head = document.querySelector('.head')
+        let yourcount = document.getElementById('yourcount');
+        let compcount= document.getElementById('compcount');
+        const option = ['rock','paper','scissor']
+
+        rock.addEventListener('click',function(){
+            if(parseInt(yourcount.innerText)===3){
+                head.innerText="Pick your move.";
+                yourcount.innerText='0';
+                compcount.innerText='0';
+            alert("You have won 3 times, Start the game again."); }
+        else if(parseInt(compcount.innerText)===3){
+            head.innerText="Pick your move.";
+            compcount.innerText='0';
+            yourcount.innerText='0';
+            alert("Computer has won 3 times, Start the game again");}
+        else{
+           let randomindex = parseInt(Math.random()*option.length);
+            if(option[randomindex]==='rock')
+            head.innerText = "It's a tie, try again. Computer choice is rock.";
+            else if(option[randomindex]==='scissor'){
+                head.innerText = "You won, rock beats scissor. Computer choice is scissor.";
+                let value = parseInt(yourcount.innerText);
+                yourcount.innerText = value+1;
+            }
+            else{
+                head.innerText = "You lose, paper beats rock. Computer choice is paper.";
+                let value= parseInt(compcount.innerText);
+                compcount.innerText = value+1;
+            }
+        }
+        })
+
+        paper.addEventListener('click',function(){
+            if(parseInt(yourcount.innerText)===3){
+                head.innerText="Pick your move.";
+                yourcount.innerText='0';
+                compcount.innerText='0';
+            alert("You have won 3 times, Start the game again."); }
+        else if(parseInt(compcount.innerText)===3){
+            head.innerText="Pick your move.";
+            compcount.innerText='0';
+            yourcount.innerText='0';
+            alert("Computer has won 3 times, Start the game again");}
+        else{
+           let randomindex = parseInt(Math.random()*option.length);
+            if(option[randomindex]==='paper')
+            head.innerText = "It's a tie, try again. Computer choice is paper.";
+            else if(option[randomindex]==='scissor'){
+                head.innerText = "You lose, scissor beats paper. Computer choice is scissor.";
+                let value = parseInt(compcount.innerText);
+                compcount.innerText = value+1;
+            }
+            else{
+                head.innerText = "You win, paper beats rock. Computer choice is rock.";
+                let value= parseInt(yourcount.innerText);
+                yourcount.innerText = value+1;
+            }
+        }
+        })
+
+        scissor.addEventListener('click',function(){
+            if(parseInt(yourcount.innerText)===3){
+                head.innerText="Pick your move.";
+                yourcount.innerText='0';
+                compcount.innerText='0';
+            alert("You have won 3 times, Start the game again."); }
+        else if(parseInt(compcount.innerText)===3){
+            head.innerText="Pick your move.";
+            compcount.innerText='0';
+            yourcount.innerText='0';
+            alert("Computer has won 3 times, Start the game again");}
+        else{
+           let randomindex = parseInt(Math.random()*option.length);
+            if(option[randomindex]==='scissor')
+            head.innerText = "It's a tie, try again. Computer choice is scissor.";
+            else if(option[randomindex]==='rock'){
+                head.innerText = "You lose, rock beats scissor. Computer choice is rock.";
+                let value = parseInt(compcount.innerText);
+                compcount.innerText = value+1;
+            }
+            else{
+                head.innerText = "You win, scissor beats paper. Computer choice is paper.";
+                let value= parseInt(yourcount.innerText);
+                yourcount.innerText = value+1;
+            }
+        }
+        })
+    </script>
+</body>
+</html>
